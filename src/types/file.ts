@@ -1,12 +1,40 @@
+export interface UserInfo {
+  name: string;
+  avatar?: string;
+}
+
+export interface LinkedResources {
+  orderId: string;
+  orderDate: string;
+  customerName: string;
+  deliveryDate: string;
+  relatedResourceName: string;
+  relatedResourceUrl: string;
+}
+
 export interface FileDTO {
   id: string;
+  uuid: string;
   name: string;
   size: number;
   type: string;
+  format: string;
+  createdBy: UserInfo;
+  createdAt: string;
+  modifiedBy: UserInfo;
+  modifiedAt: string;
   lastModified: string;
+  accessLevel: string[];
+  linkedResources?: LinkedResources;
   category: string;
-  customTag?: any;
-  uuid: string;
+  status: 'active' | 'archived' | 'deleted';
+  customTag?: {
+    favorite?: boolean;
+    pinned?: boolean;
+    status?: 'Active' | 'Archived' | 'Deleted';
+    createdBy?: string;
+    modifiedBy?: string;
+  };
 }
 
 export interface LinkedResourceDTO {

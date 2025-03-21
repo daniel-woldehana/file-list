@@ -4,30 +4,192 @@ import { FileDTO, LinkedResourceDTO, FileShareDTO, CreateFileShareDTO } from '..
 const dummyFiles: FileDTO[] = [
   {
     id: '1',
-    name: 'Project Proposal.pdf',
-    size: 1024000,
-    type: 'application/pdf',
-    lastModified: '2024-02-20T10:00:00Z',
+    uuid: 'uuid-1',
+    name: 'Invoice_Q1_2024.pdf',
+    size: 2.1 * 1024 * 1024, // 2.1MB
+    type: 'PDF',
+    format: 'application/pdf',
+    createdBy: {
+      name: 'Alice Brown',
+      avatar: '/avatars/alice.jpg'
+    },
+    createdAt: '2024-02-02T14:00:00Z',
+    modifiedBy: {
+      name: 'David Smith',
+      avatar: '/avatars/david.jpg'
+    },
+    modifiedAt: '2024-02-02T14:00:00Z',
+    lastModified: '2024-02-02T14:00:00Z',
     category: 'Ordering',
-    uuid: 'uuid-1'
+    status: 'active',
+    accessLevel: ['Order', 'Task', 'Reseller', 'Client'],
+    customTag: {
+      status: 'Active',
+      favorite: false,
+      pinned: true
+    }
   },
   {
     id: '2',
-    name: 'Meeting Notes.docx',
-    size: 512000,
-    type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-    lastModified: '2024-02-19T15:30:00Z',
-    category: 'Tasks',
-    uuid: 'uuid-2'
+    uuid: 'uuid-2',
+    name: 'Order_Confirmation.xlsx',
+    size: 545 * 1024, // 545KB
+    type: 'Excel',
+    format: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+    createdBy: {
+      name: 'David Smith',
+      avatar: '/avatars/david.jpg'
+    },
+    createdAt: '2024-02-02T14:00:00Z',
+    modifiedBy: {
+      name: 'Alice Brown',
+      avatar: '/avatars/alice.jpg'
+    },
+    modifiedAt: '2024-02-02T14:00:00Z',
+    lastModified: '2024-02-02T14:00:00Z',
+    category: 'Production',
+    status: 'archived',
+    accessLevel: ['Order', 'Task'],
+    customTag: {
+      status: 'Archived',
+      favorite: true,
+      pinned: false
+    }
   },
   {
     id: '3',
-    name: 'Employee Handbook.pdf',
-    size: 2048000,
-    type: 'application/pdf',
-    lastModified: '2024-02-18T09:15:00Z',
+    uuid: 'uuid-3',
+    name: 'Employee_Records.docx',
+    size: 1.8 * 1024 * 1024, // 1.8MB
+    type: 'Word',
+    format: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+    createdBy: {
+      name: 'Alice Brown',
+      avatar: '/avatars/alice.jpg'
+    },
+    createdAt: '2024-02-02T14:00:00Z',
+    modifiedBy: {
+      name: 'David Smith',
+      avatar: '/avatars/david.jpg'
+    },
+    modifiedAt: '2024-02-02T14:00:00Z',
+    lastModified: '2024-02-02T14:00:00Z',
+    category: 'Bookkeeping',
+    status: 'active',
+    accessLevel: ['Task', 'Client'],
+    customTag: {
+      status: 'Active',
+      favorite: false,
+      pinned: false
+    }
+  },
+  {
+    id: '4',
+    uuid: 'uuid-4',
+    name: 'Annual_Report_2023.pdf',
+    size: 3.5 * 1024 * 1024, // 3.5MB
+    type: 'PDF',
+    format: 'application/pdf',
+    createdBy: {
+      name: 'David Smith',
+      avatar: '/avatars/david.jpg'
+    },
+    createdAt: '2024-02-02T14:00:00Z',
+    modifiedBy: {
+      name: 'Alice Brown',
+      avatar: '/avatars/alice.jpg'
+    },
+    modifiedAt: '2024-02-02T14:00:00Z',
+    lastModified: '2024-02-02T14:00:00Z',
     category: 'Personnel',
-    uuid: 'uuid-3'
+    status: 'archived',
+    accessLevel: ['Task'],
+    customTag: {
+      status: 'Archived',
+      favorite: true,
+      pinned: true
+    }
+  },
+  {
+    id: '5',
+    uuid: 'uuid-5',
+    name: 'Invoice_Q1_2024.pdf',
+    size: 2.1 * 1024 * 1024, // 2.1MB
+    type: 'PDF',
+    format: 'application/pdf',
+    createdBy: {
+      name: 'Alice Brown',
+      avatar: '/avatars/alice.jpg'
+    },
+    createdAt: '2024-02-02T14:00:00Z',
+    modifiedBy: {
+      name: 'David Smith',
+      avatar: '/avatars/david.jpg'
+    },
+    modifiedAt: '2024-02-02T14:00:00Z',
+    lastModified: '2024-02-02T14:00:00Z',
+    category: 'Administration',
+    status: 'active',
+    accessLevel: ['Order', 'Task', 'Reseller', 'Client'],
+    customTag: {
+      status: 'Active',
+      favorite: false,
+      pinned: true
+    }
+  },
+  {
+    id: '6',
+    uuid: 'uuid-6',
+    name: 'Order_Confirmation.xlsx',
+    size: 545 * 1024, // 545KB
+    type: 'Excel',
+    format: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+    createdBy: {
+      name: 'David Smith',
+      avatar: '/avatars/david.jpg'
+    },
+    createdAt: '2024-02-02T14:00:00Z',
+    modifiedBy: {
+      name: 'Alice Brown',
+      avatar: '/avatars/alice.jpg'
+    },
+    modifiedAt: '2024-02-02T14:00:00Z',
+    lastModified: '2024-02-02T14:00:00Z',
+    category: 'Ordering',
+    status: 'active',
+    accessLevel: ['Order', 'Task'],
+    customTag: {
+      status: 'Active',
+      favorite: false,
+      pinned: false
+    }
+  },
+  {
+    id: '7',
+    uuid: 'uuid-7',
+    name: 'Employee_Records.docx',
+    size: 1.8 * 1024 * 1024, // 1.8MB
+    type: 'Word',
+    format: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+    createdBy: {
+      name: 'Alice Brown',
+      avatar: '/avatars/alice.jpg'
+    },
+    createdAt: '2024-02-02T14:00:00Z',
+    modifiedBy: {
+      name: 'David Smith',
+      avatar: '/avatars/david.jpg'
+    },
+    modifiedAt: '2024-02-02T14:00:00Z',
+    lastModified: '2024-02-02T14:00:00Z',
+    category: 'Bookkeeping',
+    status: 'deleted',
+    accessLevel: ['Task'],
+    customTag: {
+      status: 'Deleted',
+      favorite: false,
+      pinned: false
+    }
   }
 ];
 
